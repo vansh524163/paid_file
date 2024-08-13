@@ -1,3 +1,6 @@
+Flask==2.2.2
+gunicorn==20.1.0
+aiohttp==3.8.2
 
 pyrofork
 python-dotenv
@@ -7,6 +10,3 @@ aiofiles
 dnspython
 requests
 jinja2
-Flask==2.2.2
-gunicorn==20.1.0
-aiohttp==3.8.2
