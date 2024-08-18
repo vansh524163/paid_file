@@ -25,6 +25,9 @@ class Telegram:
     MODE = env.get("MODE", "primary")
     SECONDARY = True if MODE.lower() == "secondary" else False
     AUTH_USERS = list(set(int(x) for x in str(env.get("AUTH_USERS", "")).split()))
+    STREAM_URL = env.get("STREAM_URL", "")
+    DOWNLOAD_URL = env.get("DOWNLOAD", "")
+    FILES_URL = env.get("FILES_URL", "")
 
 class Server:
     PORT = int(env.get("PORT", 8080))
