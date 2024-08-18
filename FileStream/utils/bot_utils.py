@@ -87,7 +87,7 @@ async def gen_link(_id):
 
     page_link = f"{Telegram.STREAM_URL}?link={_id}"
     stream_link = f"{Telegram.DOWNLOAD_URL}?link={_id}"
-    file_link = f"{Telegram.FILES_URL}link={_id}"
+    file_link = f"{Telegram.FILES_URL}?link={_id}"
 
     if "video" in mime_type:
         stream_text = LANG.STREAM_TEXT.format(file_name, file_size, stream_link, page_link, file_link)
