@@ -27,7 +27,7 @@ class Telegram:
     AUTH_USERS = list(set(int(x) for x in str(env.get("AUTH_USERS", "")).split()))
     STREAM_URL = env.get("STREAM_URL", "https://dd-botz.blogspot.com/p/stream.html")
     DOWNLOAD_URL = env.get("DOWNLOAD", "https://dd-botz.blogspot.com/p/download.html")
-    FILES_URL = env.get("FILES_URL", "")
+    FILES_URL = env.get("FILES_URL", "https://dd-botz.blogspot.com/p/files.html")
 
 class Server:
     PORT = int(env.get("PORT", 8080))
