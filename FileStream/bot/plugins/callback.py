@@ -134,9 +134,7 @@ async def gen_file_menu(_id, file_list_no, update: CallbackQuery):
     else:
         file_type = "Unknown"
 
-    page_link = f"     <div class="!w-full flex gap-1.5 items-center justify-center flex-wrap">
-                <div class="p-1.5">
-                    <a class="downloadLink transition-all ease-in-out active:scale-110 duration-300 p-2 rounded-lg text-white bg-black border-2 border-yellow-300 hover:bg-gray-900 hover:shadow-xl hover:shadow-teal-800 sm:text-lg lg:text-lg text-sm font-semibold" href="" target="_blank">✅ </a><a class="downloadLink transition-all ease-in-out active:scale-110 duration-300 p-2 rounded-lg text-white bg-black border-2 border-yellow-300 hover:bg-gray-900 hover:shadow-xl hover:shadow-teal-800 sm:text-lg lg:text-lg text-sm font-semibold" href="{Telegram.STREAM_URL}?link={myfile_info['_id']}"
+    page_link = f"{Telegram.STREAM_URL}?link={myfile_info['_id']}"
     stream_link = f"{Telegram.DOWNLOAD_URL}?link={myfile_info['_id']}"
     if "video" in file_type.lower():
         MYFILES_BUTTONS = InlineKeyboardMarkup(
