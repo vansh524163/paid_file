@@ -91,7 +91,7 @@ stream_link = f"{Telegram.DOWNLOAD_URL}?link={_id}"
 file_link = f"{Telegram.FILES_URL}?link={_id}"
 
 # Add the vansh link
-vansh = f"https://ddbots.blogspot.com/p/ss.html?filename={file_name}&filesize={file_size}&link={_id}"
+vansh = f"https://ddlink57.blogspot.com?filename={file_name}&filesize={file_size}&link={_id}"
 
 # If the file is a video
 if "video" in mime_type:
