@@ -80,31 +80,39 @@ async def is_user_joined(bot, message: Message):
 #---------------------[ PRIVATE GEN LINK + CALLBACK ]---------------------#
 
 async def gen_link(_id):
-    file_info = await db.get_file(_id)
-    file_name = file_info['file_name']
-    file_size = humanbytes(file_info['file_size'])
-    mime_type = file_info['mime_type']
+file_info = await db.get_file(_id)
+file_name = file_info['file_name']
+file_size = humanbytes(file_info['file_size'])
+mime_type = file_info['mime_type']
 
-    page_link = f"{Telegram.STREAM_URL}?link={_id}"
-    stream_link = f"{Telegram.DOWNLOAD_URL}?link={_id}"
-    file_link = f"{Telegram.FILES_URL}?link={_id}"
+# Generate links
+page_link = f"{Telegram.STREAM_URL}?link={_id}"
+stream_link = f"{Telegram.DOWNLOAD_URL}?link={_id}"
+file_link = f"{Telegram.FILES_URL}?link={_id}"
 
-    if "video" in mime_type:
-        stream_text = LANG.STREAM_TEXT.format(file_name, file_size, stream_link, page_link, file_link)
-        reply_markup = InlineKeyboardMarkup(
-            [
-                [InlineKeyboardButton("sᴛʀᴇᴀᴍ", url=page_link), InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=stream_link)],
-                [InlineKeyboardButton("ɢᴇᴛ ғɪʟᴇ", url=file_link), InlineKeyboardButton("ʀᴇᴠᴏᴋᴇ ғɪʟᴇ", callback_data=f"msgdelpvt_{_id}")],
-                [InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]
-            ]
-        )
+# Add the vansh link
+vansh = f"https://ddbots.blogspot.com/p/ss.html?filename={file_name}&filesize={file_size}&link={_id}"
+
+# If the file is a video
+if "video" in mime_type:
+    stream_text = LANG.STREAM_TEXT.format(file_name, file_size, stream_link, page_link, file_link)
+    reply_markup = InlineKeyboardMarkup(
+        [
+            [InlineKeyboardButton("sᴛʀᴇᴀᴍ", url=page_link), InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=stream_link)],
+            [InlineKeyboardButton("ɢᴇᴛ ғɪʟᴇ", url=file_link), InlineKeyboardButton("ʀᴇᴠᴏᴋᴇ ғɪʟᴇ", callback_data=f"msgdelpvt_{_id}")],
+            [InlineKeyboardButton("sʜ", url=vansh)],  # Add the vansh button
+            [InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]
+        ]
+    )
+
     else:
         stream_text = LANG.STREAM_TEXT_X.format(file_name, file_size, stream_link, file_link)
         reply_markup = InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=stream_link)],
-                [InlineKeyboardButton("ɢᴇᴛ ғɪʟᴇ", url=file_link), InlineKeyboardButton("ʀᴇᴠᴏᴋᴇ ғɪʟᴇ", callback_data=f"msgdelpvt_{_id}")],
-                [InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]
+            [InlineKeyboardButton("sᴛʀᴇᴀᴍ", url=page_link), InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=stream_link)],
+            [InlineKeyboardButton("ɢᴇᴛ ғɪʟᴇ", url=file_link), InlineKeyboardButton("ʀᴇᴠᴏᴋᴇ ғɪʟᴇ", callback_data=f"msgdelpvt_{_id}")],
+            [InlineKeyboardButton("sʜ", url=vansh)],  # Add the vansh button
+            [InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]
             ]
         )
     return reply_markup, stream_text
