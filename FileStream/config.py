@@ -4,13 +4,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Telegram:
-    API_ID = int(env.get("API_ID", '21723146'))
+    API_ID = int(env.get("API_ID", '21956488'))
     API_HASH = str(env.get("API_HASH"))
     BOT_TOKEN = str(env.get("BOT_TOKEN"))
-    OWNER_ID = int(env.get('OWNER_ID', '6133440326'))
+    OWNER_ID = int(env.get('OWNER_ID', '2020224264'))
     WORKERS = int(env.get("WORKERS", "6"))  # 6 workers = 6 commands at once
-    DATABASE_URL = str(env.get('DATABASE_URL', 'mongodb+srv://abdulmk184:abdulmk184@cluster0.fv4ffn1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'))
-    UPDATES_CHANNEL = str(env.get('UPDATES_CHANNEL', "bots_up"))
+    DATABASE_URL = str(env.get('DATABASE_URL', 'mongodb+srv://kavijoy952:8qOZ2k2VfeFVcWc1@cluster0.enxbb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'))
+    UPDATES_CHANNEL = str(env.get('UPDATES_CHANNEL', "update_info4_bot"))
     SESSION_NAME = str(env.get('SESSION_NAME', 'FileStream'))
     FORCE_SUB_ID = env.get('FORCE_SUB_ID', None)
     FORCE_SUB = env.get('FORCE_UPDATES_CHANNEL', False)
@@ -20,8 +20,8 @@ class Telegram:
     START_PIC = env.get('START_PIC', "https://graph.org/file/290af25276fa34fa8f0aa.jpg")
     VERIFY_PIC = env.get('VERIFY_PIC', "https://graph.org/file/736e21cc0efa4d8c2a0e4.jpg")
     MULTI_CLIENT = False
-    FLOG_CHANNEL = int(env.get("FLOG_CHANNEL", -1001626107740))   # Logs channel for file logs
-    ULOG_CHANNEL = int(env.get("ULOG_CHANNEL", -1001626107740))   # Logs channel for user logs
+    FLOG_CHANNEL = int(env.get("FLOG_CHANNEL", -1002065793080))   # Logs channel for file logs
+    ULOG_CHANNEL = int(env.get("ULOG_CHANNEL", -1002065793080))   # Logs channel for user logs
     MODE = env.get("MODE", "primary")
     SECONDARY = True if MODE.lower() == "secondary" else False
     AUTH_USERS = list(set(int(x) for x in str(env.get("AUTH_USERS", "")).split()))
