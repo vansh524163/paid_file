@@ -153,7 +153,8 @@ vansh = f"https://cinema4uq.blogspot.com/p/ss.html?filename={filename}&filesize=
     else:
         MYFILES_BUTTONS = InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=stream_link)],
+                [InlineKeyboardButton("STREAM", url=page_link), InlineKeyboardButton("DOWNLOAD", url=stream_link)],
+                [InlineKeyboardButton("Share", url=vansh)], # Corrected syntax
                 [InlineKeyboardButton("ɢᴇᴛ ғɪʟᴇ", callback_data=f"sendfile_{myfile_info['_id']}"),
                  InlineKeyboardButton("ʀᴇᴠᴏᴋᴇ ғɪʟᴇ", callback_data=f"msgdelete_{myfile_info['_id']}_{file_list_no}")],
                 [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data="userfiles_{}".format(file_list_no))]
