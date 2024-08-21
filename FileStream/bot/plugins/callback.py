@@ -156,13 +156,13 @@ if "video" in file_type.lower():
 
     else:
         MYFILES_BUTTONS = InlineKeyboardMarkup(
-            [
-                [InlineKeyboardButton("STREAM", url=page_link), InlineKeyboardButton("DOWNLOAD", url=stream_link)],
-                [InlineKeyboardButton("Share", url=vansh)], # Corrected syntax
-                [InlineKeyboardButton("ɢᴇᴛ ғɪʟᴇ", callback_data=f"sendfile_{myfile_info['_id']}"),
-                 InlineKeyboardButton("ʀᴇᴠᴏᴋᴇ ғɪʟᴇ", callback_data=f"msgdelete_{myfile_info['_id']}_{file_list_no}")],
-                [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data="userfiles_{}".format(file_list_no))]
-            ]
+        [
+            [InlineKeyboardButton("sᴛʀᴇᴀᴍ", url=page_link), InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=stream_link)],
+            [InlineKeyboardButton("ɢᴇᴛ ғɪʟᴇ", callback_data=f"sendfile_{file_id}"),
+             InlineKeyboardButton("ʀᴇᴠᴏᴋᴇ ғɪʟᴇ", callback_data=f"msgdelete_{file_id}_{file_list_no}")],
+            [InlineKeyboardButton("link", url=vansh)],
+            [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"userfiles_{file_list_no}")]
+        ]
         )
 
     TiMe = myfile_info['time']
