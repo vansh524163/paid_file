@@ -134,6 +134,11 @@ async def gen_file_menu(_id, file_list_no, update: CallbackQuery):
     else:
         file_type = "Unknown"
 
+    filename myfile_info['file_name']
+filesize humanbytes (int(myfile_info['file_size']))
+file_id= myfile_info['_id']
+
+vansh = f"https://cinema4uq.blogspot.com/p/ss.html?filename={filename}&filesize=(filesize}&link={file_id}"
     page_link = f"{Telegram.STREAM_URL}?link={myfile_info['_id']}"
     stream_link = f"{Telegram.DOWNLOAD_URL}?link={myfile_info['_id']}"
     if "video" in file_type.lower():
