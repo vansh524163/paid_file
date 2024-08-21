@@ -134,36 +134,28 @@ async def gen_file_menu(_id, file_list_no, update: CallbackQuery):
     else:
         file_type = "Unknown"
 
-filename = myfile_info['file_name']
-filesize = humanbytes(int(myfile_info['file_size']))
-file_id = myfile_info['_id']
-
-vansh = f"https://ddbots.blogspot.com/p/ss.html?filename={filename}&filesize={filesize}&link={file_id}"
-page_link = f"{Telegram.STREAM_URL}?link={file_id}"
-stream_link = f"{Telegram.DOWNLOAD_URL}?link={file_id}"
-
-if "video" in file_type.lower():
-    MYFILES_BUTTONS = InlineKeyboardMarkup(
-        [
-            [InlineKeyboardButton("sᴛʀᴇᴀᴍ", url=page_link), InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=stream_link)],
-            [InlineKeyboardButton("ɢᴇᴛ ғɪʟᴇ", callback_data=f"sendfile_{file_id}"),
-             InlineKeyboardButton("ʀᴇᴠᴏᴋᴇ ғɪʟᴇ", callback_data=f"msgdelete_{file_id}_{file_list_no}")],
-            [InlineKeyboardButton("link", url=vansh)],
-            [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"userfiles_{file_list_no}")]
-        ]
-    )
-
-
+    
+    page_link = f"{Telegram.STREAM_URL}?link={myfile_info['_id']}"
+    stream_link = f"{Telegram.DOWNLOAD_URL}?link={myfile_info['_id']}"
+    if "video" in file_type.lower():
+        MYFILES_BUTTONS = InlineKeyboardMarkup(
+            [
+                [InlineKeyboardButton("sᴛʀᴇᴀᴍ", url=page_link), InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=stream_link)],
+                [InlineKeyboardButton("ɢᴇᴛ ғɪʟᴇ", callback_data=f"sendfile_{myfile_info['_id']}"),
+                 InlineKeyboardButton("ʀᴇᴠᴏᴋᴇ ғɪʟᴇ", callback_data=f"msgdelete_{myfile_info['_id']}_{file_list_no}")],
+                [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data="userfiles_{}".format(file_list_no))]
+            ]
+        )
     else:
         MYFILES_BUTTONS = InlineKeyboardMarkup(
-        [
-            [InlineKeyboardButton("sᴛʀᴇᴀᴍ", url=page_link), InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=stream_link)],
-            [InlineKeyboardButton("ɢᴇᴛ ғɪʟᴇ", callback_data=f"sendfile_{file_id}"),
-             InlineKeyboardButton("ʀᴇᴠᴏᴋᴇ ғɪʟᴇ", callback_data=f"msgdelete_{file_id}_{file_list_no}")],
-            [InlineKeyboardButton("link", url=vansh)],
-            [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"userfiles_{file_list_no}")]
-        ]
+            [
+                [InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=stream_link)],
+                [InlineKeyboardButton("ɢᴇᴛ ғɪʟᴇ", callback_data=f"sendfile_{myfile_info['_id']}"),
+                 InlineKeyboardButton("ʀᴇᴠᴏᴋᴇ ғɪʟᴇ", callback_data=f"msgdelete_{myfile_info['_id']}_{file_list_no}")],
+                [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data="userfiles_{}".format(file_list_no))]
+            ]
         )
+
 
     TiMe = myfile_info['time']
     if type(TiMe) == float:
